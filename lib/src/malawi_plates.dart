@@ -36,8 +36,18 @@ abstract final class MalawiPlates {
     panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
     noPanel: true,
     slots: <PlateSlot>[
-      _field(MalawiAlphabets.letters, 2, _Layout.lettersLeft, _Layout.lettersWidth),
-      _field(MalawiAlphabets.digits, 4, _Layout.digitsLeft, _Layout.digitsWidth),
+      _field(
+        MalawiAlphabets.letters,
+        2,
+        _Layout.lettersLeft,
+        _Layout.lettersWidth,
+      ),
+      _field(
+        MalawiAlphabets.digits,
+        4,
+        _Layout.digitsLeft,
+        _Layout.digitsWidth,
+      ),
     ],
     textGroups: <PlateTextGroup>[
       PlateTextGroup(<int>[0], key: 'letters'),
@@ -47,11 +57,15 @@ abstract final class MalawiPlates {
 
   static List<PlateSpec> get all => <PlateSpec>[private];
 
-  static PlateSlot _field(PlateAlphabet alphabet, int count, double left, double width) =>
-      PlateSlot(
-        alphabet: alphabet,
-        box: PlateBox(left, _Layout.cy - _Layout.box / 2, width, _Layout.box),
-        length: count,
-        spacing: max(0, width / count - 0.6 * 0.72 * _Layout.box),
-      );
+  static PlateSlot _field(
+    PlateAlphabet alphabet,
+    int count,
+    double left,
+    double width,
+  ) => PlateSlot(
+    alphabet: alphabet,
+    box: PlateBox(left, _Layout.cy - _Layout.box / 2, width, _Layout.box),
+    length: count,
+    spacing: max(0, width / count - 0.6 * 0.72 * _Layout.box),
+  );
 }
