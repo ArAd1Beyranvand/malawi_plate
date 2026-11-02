@@ -1,7 +1,7 @@
 name: malawi_plate
 description: "Malawi's licence plates for the plate_core library — the private plate, two letters and four digits in silver on black, with one theme and an advisory validator."
 version: 0.1.0
-repository: https://github.com/ArAd1Beyranvand/malawi_plate
+repository: https://github.com/ArAd1Beyranvand/malawi_plate/tree/main/flutter
 resolution: workspace
 
 environment:
