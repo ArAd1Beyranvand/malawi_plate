@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:plate_alphabet/plate_alphabet.dart';
 import 'package:plate_core/plate_core.dart';
 
@@ -14,8 +12,7 @@ import 'malawi_country.dart';
 /// 93 units of ink would need a ~130-unit slot, more than the canvas, so the
 /// box is 110 and the ink lands near 60% of the photo's.
 abstract final class _Layout {
-  static const double width = 520, height = 124;
-  static const double cy = 55.6, box = 110;
+  static const double width = 520, height = 124, cy = 55.6, box = 110;
   static const double lettersLeft = 20.8, lettersWidth = 140.7;
   static const double digitsLeft = 200.2, digitsWidth = 289.6;
 }
@@ -33,8 +30,6 @@ abstract final class MalawiPlates {
     country: MalawiCountry.malawi,
     canvasWidth: _Layout.width,
     canvasHeight: _Layout.height,
-    panel: const PlatePanel(box: PlateBox(0, 0, 0, 0)),
-    noPanel: true,
     slots: <PlateSlot>[
       _field(
         MalawiAlphabets.letters,
@@ -49,10 +44,7 @@ abstract final class MalawiPlates {
         _Layout.digitsWidth,
       ),
     ],
-    textGroups: <PlateTextGroup>[
-      PlateTextGroup(<int>[0], key: 'letters'),
-      PlateTextGroup(<int>[1], key: 'serial'),
-    ],
+    textGroups: PlateTextGroup.perSlot(<String>['letters', 'serial']),
   );
 
   static List<PlateSpec> get all => <PlateSpec>[private];
@@ -62,10 +54,12 @@ abstract final class MalawiPlates {
     int count,
     double left,
     double width,
-  ) => PlateSlot(
-    alphabet: alphabet,
-    box: PlateBox(left, _Layout.cy - _Layout.box / 2, width, _Layout.box),
-    length: count,
-    spacing: max(0, width / count - 0.6 * 0.72 * _Layout.box),
+  ) => plateRun(
+    alphabet,
+    count,
+    left: left,
+    top: _Layout.cy - _Layout.box / 2,
+    pitch: width / count,
+    height: _Layout.box,
   );
 }

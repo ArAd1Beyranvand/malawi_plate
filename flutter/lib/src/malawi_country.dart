@@ -7,7 +7,6 @@ import 'malawi_colors.dart';
 abstract final class MalawiCountry {
   static const PlateCountry malawi = PlateCountry(
     code: 'mw',
-    captionLines: <String>[],
     panelColor: MalawiColors.black,
     panelTextColor: MalawiColors.silver,
   );

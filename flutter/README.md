@@ -6,13 +6,24 @@ GO VEGAN 🌱
 
 From the mighty people of Iran to the people of Malawi to view examples:
 
-https://platexample.ir/#/discover/malawi
+https://platexample.ir/#/discover/malawi:flutter
 
 # malawi_plate
 
-Malawi's licence plates for the `plate_core` library. the private plate, two letters and four digits in silver on black, with one theme and an advisory validator.
+Malawi's licence plates for the plate_core library — the private plate, two letters and four digits in silver on black, with one theme and an advisory validator.
 
-## Install
+## Languages
+
+| Language | Folder | Example |
+| --- | --- | --- |
+| Flutter / Dart | [`flutter/`](https://github.com/ArAd1Beyranvand/malawi_plate/tree/main/flutter) | [platexample](https://platexample.ir/#/discover/malawi:flutter) |
+| Kotlin | [`kotlin/`](https://github.com/ArAd1Beyranvand/malawi_plate/tree/main/kotlin) | [platexample](https://platexample.ir/#/discover/malawi:kotlin) |
+| Python | [`python/`](https://github.com/ArAd1Beyranvand/malawi_plate/tree/main/python) | [platexample](https://platexample.ir/#/discover/malawi:python) |
+| TypeScript | [`typescript/`](https://github.com/ArAd1Beyranvand/malawi_plate/tree/main/typescript) | [platexample](https://platexample.ir/#/discover/malawi:typescript) |
+
+## Quick start
+
+### Install
 
 ```yaml
 dependencies:
@@ -20,7 +31,7 @@ dependencies:
   malawi_plate: ^0.1.0
 ```
 
-## Use
+### Use
 
 ```dart
 import 'package:plate_core/plate_core.dart';
@@ -35,12 +46,24 @@ PlateCanvas(
 );
 ```
 
-## Contains
+## Specs
 
-- `MalawiCountry` — country panel: `malawi`.
-- `MalawiPlates` — 1 plate spec: `private`.
-- `MalawiThemes` — 1 theme: `private`.
-- `MalawiValidator` — advisory validator; flags the frame, never blocks a keystroke.
+Each spec is one plate layout.
+
+- `MalawiPlates.private` — id `mw.private`
+
+## Themes
+
+- `MalawiThemes.private`
+
+## Change it
+
+`PlateCanvas` takes `spec:` (an entry of `MalawiPlates`) and `theme:` (an entry of `MalawiThemes`). Set `validator:` to `MalawiValidator()` and `autoValidate: true` to show validation hints.
+
+## Also included
+
+- `MalawiCountry` — the country panel.
+- `MalawiValidator` — the plate validator.
 
 ## Plates
 
@@ -56,3 +79,6 @@ article names no Israel-specific value.
 
 Painted by [`plate_core`](https://pub.dev/packages/plate_core); alphabets shared through [`plate_alphabet`](https://pub.dev/packages/plate_alphabet); optional character picker in [`plate_keypad`](https://pub.dev/packages/plate_keypad).
 
+## License
+
+See [LICENSE](https://github.com/ArAd1Beyranvand/malawi_plate/blob/main/LICENSE).
